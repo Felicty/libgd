@@ -88,10 +88,10 @@ build_autotools() {
 
 	# Verify building a release works (also does things like read-only
 	# out of tree builds for use).
-	m distcheck VERBOSE=1
+	#m distcheck VERBOSE=1
 
 	# Clean things up for cmake.
-	m distclean
+	#m distclean
 }
 
 build_cmake() {
