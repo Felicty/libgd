@@ -147,8 +147,8 @@ main() {
 	build_autotools
 	build_cmake
 	compare_builds
-	v --fold="coverity_scan" coverity_scan
+	#v --fold="coverity_scan" coverity_scan
 	# Run the source tests last.
-	v --fold="source_tests" source_tests
+	#v --fold="source_tests" source_tests
 }
 main "$@"
