@@ -23,7 +23,22 @@ os:
   - linux
 #  - osx
 
-script: ./travis/main.sh
+script: 
+  ./bootstrap.sh && ./configure CFLAGS="-fprofile-arcs -ftest-coverage "   CPPFLAGS=" -fprofile-arcs -ftest-coverage " --prefix=/usr/local \
+  --libdir=/usr/local/lib \
+  --enable-werror \
+  --enable-gd-formats \
+  --with-fontconfig \
+  --with-freetype \
+  --with-jpeg \
+  --with-png \
+  --with-tiff \
+  --with-webp \
+  --with-xpm \
+  --with-zlib
+  - make
+  - make check
+  
 
 addons:
   apt:
