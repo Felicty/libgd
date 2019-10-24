@@ -59,4 +59,4 @@ after_success:
         - lcov --directory . --capture --output-file coverage.info # capture coverage info
         - lcov --remove coverage.info '/usr/*' --output-file coverage.info # filter out system
         - lcov --list coverage.info #debug info
-        - codecov -t 39285ee5-9536-44ee-8d9c-2f1a46e851e5
+        - codecov -t 118ede5b-753f-46e3-a5c7-3f898836b441
