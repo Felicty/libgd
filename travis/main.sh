@@ -23,7 +23,7 @@ coverity_scan() {
 	export COVERITY_SCAN_PROJECT_NAME="${TRAVIS_REPO_SLUG}"
 	export COVERITY_SCAN_NOTIFICATION_EMAIL="pierre.php@gmail.com"
 	export COVERITY_SCAN_BUILD_COMMAND="make -j${ncpus}"
-	export COVERITY_SCAN_BUILD_COMMAND_PREPEND="git clean -q -x -d -f; git checkout -f; ./bootstrap.sh && ./configure"
+	export COVERITY_SCAN_BUILD_COMMAND_PREPEND="git clean -q -x -d -f; git checkout -f; ./bootstrap.sh && ./configure CFLAGS='-fprofile-arcs -ftest-coverage '   CPPFLAGS=' -fprofile-arcs -ftest-coverage '"
 	export COVERITY_SCAN_BRANCH_PATTERN="GD-2.2"
 
 	curl -s "https://scan.coverity.com/scripts/travisci_build_coverity_scan.sh" | bash || :
