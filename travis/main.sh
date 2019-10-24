@@ -88,10 +88,10 @@ build_autotools() {
 
 	# Verify building a release works (also does things like read-only
 	# out of tree builds for use).
-	#m distcheck VERBOSE=1
+	m distcheck VERBOSE=1
 
 	# Clean things up for cmake.
-	#m distclean
+	m distclean
 }
 
 build_cmake() {
@@ -147,8 +147,8 @@ main() {
 	build_autotools
 	build_cmake
 	compare_builds
-	#v --fold="coverity_scan" coverity_scan
+	v --fold="coverity_scan" coverity_scan
 	# Run the source tests last.
-	#v --fold="source_tests" source_tests
+	v --fold="source_tests" source_tests
 }
 main "$@"
