@@ -9,6 +9,8 @@ syntax: glob
 *.sln
 *.filters
 *.dir
+*.gcno
+*.gcda
 [Bb]in
 win32
 
