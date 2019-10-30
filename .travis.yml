@@ -14,8 +14,8 @@ env:
    - secure: "h7NGklk0xX2iuY5PgxijE7FFEgd95hxbhSwofs+hzYIiW6FR2kk8gSwEqRH5dYGnvazGT3a7fjxuYAr0y5BQCfV7yyQISl19rYZPJbP9bTxGxijTGlItyQqVTXCaucuXzgJbAOgC1W3ja4lYODflCyFzHhPggJLkXEAw1FF3+5M="
    - CODECOV_TOKEN=:118ede5b-753f-46e3-a5c7-3f898836b441
    - coverage=yes
-   - CFLAGS="-ftest-coverage -fprofile-arcs "
-   - LDFLAGS+="-lgcov "
+#   - CFLAGS="-lrt -ftest-coverage -fprofile-arcs "
+#   - LDFLAGS+="-lgcov "
 sudo: false
 
 # Order here matters; see compiler comment above.
@@ -23,7 +23,14 @@ os:
   - linux
 #  - osx
 
-#script: ./travis/main.sh
+before_install:
+  - pip install --user codecov
+  
+script: 
+  - ./bootstrap.sh && ./configure CFLAGS="-fprofile-arcs -ftest-coverage "   CPPFLAGS=" -fprofile-arcs -ftest-coverage " --prefix=/usr/local  --libdir=/usr/local/lib --enable-werror --enable-gd-formats --with-fontconfig --with-freetype --with-jpeg --with-png --with-tiff --with-webp --with-xpm --with-zlib
+  - make
+  - make check
+  
 
 addons:
   apt:
@@ -46,12 +53,10 @@ addons:
     - libtool
     - html2text
     - lcov
-after_failure:
-        - cat "$TRAVIS_BUILD_DIR"/builddir/meson-logs/testlog.txt
 after_success: 
         # Creating report
         - cd ${TRAVIS_BUILD_DIR}
         - lcov --directory . --capture --output-file coverage.info # capture coverage info
         - lcov --remove coverage.info '/usr/*' --output-file coverage.info # filter out system
         - lcov --list coverage.info #debug info
-        - codecov -t 39285ee5-9536-44ee-8d9c-2f1a46e851e5s
+        - codecov -t 118ede5b-753f-46e3-a5c7-3f898836b441
