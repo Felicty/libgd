@@ -9,5 +9,5 @@ int main()
 	white = gdImageColorAllocate(im, 255, 255, 255);
 
 	gdImageDashedLine(im, 0, 0, 63, 63, white);
-	return 1;
+	return 0;
 }
