@@ -21,9 +21,9 @@ sudo: false
 # Order here matters; see compiler comment above.
 os:
   - linux
-  - osx
+#  - osx
 
-script: ./travis/main.sh
+#script: ./travis/main.sh
 
 addons:
   apt:
