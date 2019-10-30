@@ -9,7 +9,7 @@ int main()
 	gdImageColorAllocate(im, 0, 0, 0);
 	white = gdImageColorAllocate(im, 255, 255, 255);
 	gdImageDashedLine(im, 0, 0, 63, 63, white);
-	pngout = fopen("test.png", "wb");
+	pngout = fopen("gd/test.png", "wb");
 	gdImagePng(im, pngout);
 	fclose(pngout);
 	gdImageDestroy(im);
