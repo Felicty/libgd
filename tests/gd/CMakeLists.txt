@@ -1,5 +1,6 @@
 LIST(APPEND TESTS_FILES
 	gd_versiontest
+	gd_dash_line
 )
 
 IF(ENABLE_GD_FORMATS)
