@@ -9,9 +9,13 @@ int main()
 	gdImageColorAllocate(im, 0, 0, 0);
 	white = gdImageColorAllocate(im, 255, 255, 255);
 	gdImageDashedLine(im, 0, 0, 63, 63, white);
-	pngout = fopen("gd/test.png", "wb");
+	pngout = fopen("test.png","wb");
 	gdImagePng(im, pngout);
 	fclose(pngout);
-	gdImageDestroy(im);
-	return 0;
+	if(im)
+	{
+		gdImageDestroy(im);
+		return 0;
+	}
+	return 1;
 }
