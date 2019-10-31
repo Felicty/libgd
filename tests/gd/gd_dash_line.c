@@ -10,7 +10,7 @@ int main()
 	gdImageColorAllocate(im, 0, 0, 0);
 	white = gdImageColorAllocate(im, 255, 255, 255);
 	gdImageDashedLine(im, 0, 0, 64, 64, white);
-
+	gdImageDashedLine(im, 10, 20, 60, 63, white);
 	gdImageDestroy(im);
 	return 0;
 }
