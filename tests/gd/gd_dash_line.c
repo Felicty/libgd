@@ -11,10 +11,6 @@ int main()
 	white = gdImageColorAllocate(im, 255, 255, 255);
 	gdImageDashedLine(im, 0, 0, 64, 64, white);
 
-	if(gdAssertImageEqualsToFile("gd/test.png",im))
-	{
-		return 1;
-	}
 	gdImageDestroy(im);
 	return 0;
 }
