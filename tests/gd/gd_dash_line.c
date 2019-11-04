@@ -11,6 +11,7 @@ int main()
 	white = gdImageColorAllocate(im, 255, 255, 255);
 	gdImageDashedLine(im, 0, 0, 64, 64, white);
 	gdImageDashedLine(im, 10, 0, 60, 63, white);
+	gdImageColorClosestHWB(im, 25, 70, 30);
 	gdImageDestroy(im);
 	return 0;
 }
