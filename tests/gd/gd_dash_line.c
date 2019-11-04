@@ -4,14 +4,17 @@
 int main()
 {
 	gdImagePtr im;
-	im = gdImageCreate(64, 64);
+	im = gdImageCreate(64,64);
 	int white;
+	FILE *pngout;
 
 	gdImageColorAllocate(im, 0, 0, 0);
 	white = gdImageColorAllocate(im, 255, 255, 255);
-	gdImageDashedLine(im, 0, 0, 64, 64, white);
-	gdImageDashedLine(im, 10, 0, 60, 63, white);
-	gdImageColorClosestHWB(im, 25, 70, 30);
+	gdImageDashedLine(im, 0, 64, 64, 0, white);
+	pngout = fopen("gd/test.png", "wb");
+
+	gdImagePng(im, pngout);
+	fclose(pngout);
 	gdImageDestroy(im);
 	return 0;
 }
