@@ -10,7 +10,7 @@ int main()
 
 	im = gdImageCreateTrueColor(5, 5);
 	c = gdImageColorClosest(im, 255, 0, 255);
-	gdImageColorClosestHWB(exp, 255, 0, 255);
+	gdImageColorClosestHWB(im, 255, 0, 255);
 	gdImageDestroy(im);
 
 	if (gdTestAssert(c==0xFF00FF) != 1) {
