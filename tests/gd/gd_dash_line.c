@@ -12,7 +12,7 @@ int main()
 	white = gdImageColorAllocate(im, 255, 255, 255);
 	gdImageDashedLine(im, 0, 64, 64, 0, white);
 	pngout = fopen("gd/test.png", "wb");
-
+	gdImageColorClosestHWB(im, 116, 115, 152);
 	gdImagePng(im, pngout);
 	fclose(pngout);
 	gdImageDestroy(im);
