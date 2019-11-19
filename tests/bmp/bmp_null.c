@@ -1,4 +1,6 @@
 #include "gd.h"
+#include "gdtest.h"
+
 int main()
 {	
 	gdImagePtr im, imc;
