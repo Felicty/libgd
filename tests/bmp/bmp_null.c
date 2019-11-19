@@ -11,7 +11,6 @@ int main()
 		gdImageDestroy(im);
 		return 1;
 	}
-	gdAffineShearHorizontal(m, angle);
 	gdImageBmp(im, NULL, 0); /* noop safely */
 	
 	gdImageDestroy(imc);
