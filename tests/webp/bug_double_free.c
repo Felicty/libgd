@@ -21,7 +21,7 @@ int main()
     fclose(fp);
 
     im2 = gdImageWebpPtr(im1, &size);
-    gdImageWebpPtrEx(im1, &size, 5);
+    gdImageWebpPtrEx(im1, &size, 9);
     gdTestAssert(im2 == NULL);
 
     gdImageDestroy(im1);
