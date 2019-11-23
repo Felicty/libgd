@@ -9,7 +9,7 @@
 int main()
 {
 	gdImagePtr im;
-	FILE *fp1, fp2;
+	FILE *fp1, *fp2;
 
 	im = gdImageCreateTrueColor(20, 20);
 	if (!im) {
@@ -19,7 +19,7 @@ int main()
 	fp1 = gdTestTempFp();
 	fp2 = gdTestTempFp();
 	gdImageWebp(im, fp1);
-	gdImageWebpEx(im, fp2);
+	gdImageWebpEx(im, fp2, 8);
 	
 	fclose(fp1);
 	fclose(fp2);
