@@ -9,17 +9,21 @@
 int main()
 {
 	gdImagePtr im;
-	FILE *fp;
+	FILE *fp1, fp2;
 
 	im = gdImageCreateTrueColor(20, 20);
 	if (!im) {
 		return 0;
 	}
 
-	fp = gdTestTempFp();
-    gdImageWebp(im, fp);
-    fclose(fp);
-
+	fp1 = gdTestTempFp();
+	fp2 = gdTestTempFp();
+	gdImageWebp(im, fp1);
+	gdImageWebpEx(im, fp2);
+	
+	fclose(fp1);
+	fclose(fp2);
+	
 	gdImageDestroy(im);
-    return 0;
+	return 0;
 }
